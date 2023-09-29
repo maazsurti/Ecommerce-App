@@ -8,8 +8,7 @@ class Global {
   static Future init() async {
     WidgetsFlutterBinding.ensureInitialized();
     await Firebase.initializeApp(
-        //options: DefaultFirebaseOptions.currentPlatform
-        );
-    storageService = await StorageService().init(); 
+        options: DefaultFirebaseOptions.currentPlatform);
+    storageService = await StorageService().init();
   }
 }
