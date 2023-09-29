@@ -1,8 +1,8 @@
+import 'package:ecommerce_app_flutter/common/routes/names.dart';
 import 'package:ecommerce_app_flutter/common/widgets/flutter_toasts.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'bloc/sign_in_bloc.dart';
 
 class SignInController {
@@ -38,7 +38,8 @@ class SignInController {
 
           var user = credential.user;
           if (user != null) {
-            showToast(message: "Logged in successfully!");
+            Navigator.pushNamedAndRemoveUntil(
+                context, AppRoute.homePage, (route) => false);
           } else {
             showToast(message: "Could not login");
           }
@@ -49,6 +50,9 @@ class SignInController {
             showToast(message: "Password is incorrect");
           } else if (e.code == "invalid-email") {
             showToast(message: "The email is formatted incorrectly");
+          } else {
+            showToast(message: "An unknown error occured");
+            print(e.message);
           }
         }
       }

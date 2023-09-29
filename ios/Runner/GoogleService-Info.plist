@@ -2,22 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CLIENT_ID</key>
-	<string>945528535188-8j7gffhtfrvl5ous1c5huq6fmcikq8kq.apps.googleusercontent.com</string>
-	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.945528535188-8j7gffhtfrvl5ous1c5huq6fmcikq8kq</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDpOQyP9WCbAgUhQPOncnfzlgFlgqtmwlY</string>
+	<string>AIzaSyANCHsJSHw0zBAFRgBhzOCR5Q1eiR3wcYw</string>
 	<key>GCM_SENDER_ID</key>
-	<string>945528535188</string>
+	<string>732597020094</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.example.ecommerceAppFlutter</string>
 	<key>PROJECT_ID</key>
-	<string>tutorial-app-flutter</string>
+	<string>ecommerce-app-flutter-57814</string>
 	<key>STORAGE_BUCKET</key>
-	<string>tutorial-app-flutter.appspot.com</string>
+	<string>ecommerce-app-flutter-57814.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:945528535188:ios:8ba1e7e4358a3468149c81</string>
+	<string>1:732597020094:ios:4a12c0308d21c0bd4a05ef</string>
 </dict>
 </plist>

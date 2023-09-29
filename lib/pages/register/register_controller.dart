@@ -48,8 +48,10 @@ class RegisterController {
       } else if (e.code == "invalid-email") {
         showToast(message: "The email address is badly formatted");
       } else if (e.code == "email-already-in-use") {
-        showToast(message: "The email address is already in use by another account.");
+        showToast(
+            message: "The email address is already in use by another account.");
       } else {
+        print(e.message);
         showToast(message: "Something went wrong. Please try again");
       }
     }

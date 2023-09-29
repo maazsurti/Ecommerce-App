@@ -1,3 +1,4 @@
+import 'package:ecommerce_app_flutter/common/routes/names.dart';
 import 'package:ecommerce_app_flutter/pages/sign_in/bloc/sign_in_bloc.dart';
 import 'package:ecommerce_app_flutter/pages/sign_in/bloc/sign_in_events.dart';
 import 'package:ecommerce_app_flutter/pages/sign_in/bloc/sign_in_states.dart';
@@ -67,7 +68,6 @@ class _SignInState extends State<SignIn> {
                               context
                                   .read<SignInBloc>()
                                   .add(PasswordEvent(value));
-                              //  print(context.read<SignInBloc>().state.email);
                             },
                           ),
                           forgotPasswordButton(),
@@ -83,8 +83,8 @@ class _SignInState extends State<SignIn> {
                           loginAndRegisterButton(
                             title: "Register",
                             onTap: () {
-                              print("Registers");
-                              Navigator.of(context).pushNamed("register");
+                              Navigator.of(context)
+                                  .pushNamed(AppRoute.register);
                             },
                           ),
                         ],

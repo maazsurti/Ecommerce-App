@@ -1,3 +1,4 @@
+import 'package:ecommerce_app_flutter/common/routes/names.dart';
 import 'package:ecommerce_app_flutter/common/values/colors.dart';
 import 'package:ecommerce_app_flutter/pages/welcome/bloc/welcome_states.dart';
 import 'package:flutter/material.dart';
@@ -78,7 +79,7 @@ class _WelcomeState extends State<Welcome> {
                                     curve: Curves.easeIn);
                               } else {
                                 Navigator.of(context).pushNamedAndRemoveUntil(
-                                    "signIn", (route) => false);
+                                    AppRoute.signIn, (route) => false);
                               }
                             },
                             style: ElevatedButton.styleFrom(
