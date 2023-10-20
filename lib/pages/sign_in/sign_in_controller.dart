@@ -1,5 +1,6 @@
 import 'package:ecommerce_app_flutter/common/routes/names.dart';
 import 'package:ecommerce_app_flutter/common/widgets/flutter_toasts.dart';
+import 'package:ecommerce_app_flutter/pages/sign_in/bloc/sign_in_events.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,6 +14,8 @@ class SignInController {
     try {
       if (type == LoginType.email) {
         final state = context.read<SignInBloc>().state;
+        context.read<SignInBloc>().add(PasswordEvent("123456"));
+        context.read<SignInBloc>().add(EmailEvent("maazsurti619@gmail.com"));
         String emailAddress = state.email;
         String password = state.password;
 

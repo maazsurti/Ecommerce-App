@@ -1,11 +1,14 @@
 import 'package:ecommerce_app_flutter/common/routes/names.dart';
+import 'package:ecommerce_app_flutter/common/service/storage_service.dart';
 import 'package:ecommerce_app_flutter/common/values/colors.dart';
+import 'package:ecommerce_app_flutter/common/values/constants.dart';
 import 'package:ecommerce_app_flutter/pages/welcome/bloc/welcome_states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../../global.dart';
 import 'bloc/welcome_blocs.dart';
 
 class Welcome extends StatefulWidget {
@@ -78,8 +81,7 @@ class _WelcomeState extends State<Welcome> {
                                     duration: const Duration(milliseconds: 200),
                                     curve: Curves.easeIn);
                               } else {
-                                Navigator.of(context).pushNamedAndRemoveUntil(
-                                    AppRoute.signIn, (route) => false);
+                                Navigator.pushNamed(context, AppRoute.signIn);
                               }
                             },
                             style: ElevatedButton.styleFrom(
