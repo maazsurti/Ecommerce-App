@@ -10,5 +10,7 @@ class Global {
     await Firebase.initializeApp(
         options: DefaultFirebaseOptions.currentPlatform);
     storageService = await StorageService().init();
+    bool isLaunched = await storageService.isFirstLaunch;
+    print(isLaunched);
   }
 }

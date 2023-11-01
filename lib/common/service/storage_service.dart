@@ -2,13 +2,18 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class StorageService {
   late final SharedPreferences prefs;
+
   Future<StorageService> init() async {
     prefs = await SharedPreferences.getInstance();
     return this;
   }
 
-  Future<bool> setBool(String key, bool value) async {
-     return await prefs.setBool(key, value);
+  setBool(String key, bool value) async {
+    return prefs.setBool(key, value);
+  }
+
+  setValue(String key, String value) async {
+    return prefs.setString(key, value);
   }
 
   T getValue<T>(Keys key, T defaultValue) {
@@ -19,6 +24,21 @@ class StorageService {
       return defaultValue;
     }
   }
+
+  bool get isFirstLaunch {
+    final bool isFirstLaunch =
+        prefs.getBool(Keys.isLaunchedForTheFirstTime.name) ?? false;
+    if (isFirstLaunch == true) {
+      prefs.setBool(Keys.isLaunchedForTheFirstTime.name, false);
+    }
+    return getValue(Keys.isLaunchedForTheFirstTime, false);
+  }
+
+  bool get isUserLoggedIn {
+    final bool isUserLoggedIn =
+        prefs.getBool(Keys.isUserLoggedIn.name) ?? false;
+    return isUserLoggedIn;
+  }
 }
 
-enum Keys { isLaunchedForTheFirstTime }
+enum Keys { isLaunchedForTheFirstTime, isUserLoggedIn }

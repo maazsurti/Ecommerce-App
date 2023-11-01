@@ -70,7 +70,10 @@ class _SignInState extends State<SignIn> {
                                   .add(PasswordEvent(value));
                             },
                           ),
-                          forgotPasswordButton(),
+                          Align(
+                            child: forgotPasswordButton(),
+                            alignment: Alignment.center,
+                          ),
                           loginAndRegisterButton(
                             title: "Login",
                             isLoginButton: true,
@@ -89,6 +92,9 @@ class _SignInState extends State<SignIn> {
                           ),
                         ],
                       ),
+                    ),
+                    SizedBox(
+                      height: 30.h,
                     )
                   ],
                 ),

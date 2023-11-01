@@ -1,5 +1,7 @@
 import 'package:ecommerce_app_flutter/common/routes/names.dart';
+import 'package:ecommerce_app_flutter/common/service/storage_service.dart';
 import 'package:ecommerce_app_flutter/common/widgets/flutter_toasts.dart';
+import 'package:ecommerce_app_flutter/global.dart';
 import 'package:ecommerce_app_flutter/pages/sign_in/bloc/sign_in_events.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -43,6 +45,7 @@ class SignInController {
           if (user != null) {
             Navigator.pushNamedAndRemoveUntil(
                 context, AppRoute.homePage, (route) => false);
+            Global.storageService.setBool(Keys.isUserLoggedIn.name, true);
           } else {
             showToast(message: "Could not login");
           }

@@ -7,6 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../common/routes/names.dart';
+import '../../common/service/storage_service.dart';
+import '../../global.dart';
 import '../root/Components/bottom_navigationbar.dart';
 
 class TabBarController extends StatefulWidget {
@@ -44,6 +47,12 @@ class _TabBarControllerState extends State<TabBarController> {
                 currentIndex: context.read<RootBloc>().state.index,
                 onTap: (value) {
                   context.read<RootBloc>().add(SelectedPageChangedEvent(value));
+                  if (value == 4) {
+                    Global.storageService
+                        .setBool(Keys.isUserLoggedIn.name, false);
+                    Navigator.pushNamedAndRemoveUntil(
+                        context, AppRoute.signIn, (route) => false);
+                  }
                 },
                 selectedItemColor: AppColors.primaryElement,
                 unselectedItemColor: AppColors.QuaternaryElementText,
@@ -65,5 +74,3 @@ class _TabBarControllerState extends State<TabBarController> {
     });
   }
 }
-
-
