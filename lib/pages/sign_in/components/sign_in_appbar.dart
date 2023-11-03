@@ -16,20 +16,33 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      iconTheme: IconThemeData(color: AppColors.primaryText),
-      bottom: PreferredSize(
-        preferredSize: const Size.fromHeight(1.0),
-        child: Container(
-          color: AppColors.SecondaryBackground,
-          height: 1.0,
-        ),
-      ),
-      title: Text(
-        appBarTitle, // Set the title to the provided appBarTitle
-        style: TextStyle(
-          color: AppColors.primaryText,
-          fontSize: 16.sp,
-          fontWeight: FontWeight.normal,
+      centerTitle: true,
+      leading: null,
+      titleSpacing: 0.0,
+      automaticallyImplyLeading: false,
+      title: Container(
+        margin: EdgeInsets.symmetric(horizontal: 24.w),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              width: 20.w,
+              height: 14.h,
+              child: Image.asset("assets/icons/menu.png"),
+            ),
+            GestureDetector(
+              onTap: () {
+                print("Side button tapped");
+              },
+              child: Container(
+                width: 40.w,
+                height: 40.h,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage("assets/icons/person.png"))),
+              ),
+            )
+          ],
         ),
       ),
     );

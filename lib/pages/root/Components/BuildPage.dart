@@ -1,9 +1,10 @@
+import 'package:ecommerce_app_flutter/pages/homepage/homepage.dart';
 import 'package:flutter/cupertino.dart';
 
 Widget buildPage(int index) {
   List widget = [
     Center(
-      child: Text("Home"),
+      child: HomePage(),
     ),
     Center(
       child: Text("Search"),

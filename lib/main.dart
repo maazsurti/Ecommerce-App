@@ -1,8 +1,6 @@
 import 'package:ecommerce_app_flutter/common/routes/pages.dart';
 import 'package:ecommerce_app_flutter/common/service/get_initial_widget.dart';
 import 'package:ecommerce_app_flutter/common/values/colors.dart';
-import 'package:ecommerce_app_flutter/pages/root/tab_bar_controller.dart';
-import 'package:ecommerce_app_flutter/pages/welcome/welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

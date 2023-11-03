@@ -16,8 +16,6 @@ class SignInController {
     try {
       if (type == LoginType.email) {
         final state = context.read<SignInBloc>().state;
-        context.read<SignInBloc>().add(PasswordEvent("123456"));
-        context.read<SignInBloc>().add(EmailEvent("maazsurti619@gmail.com"));
         String emailAddress = state.email;
         String password = state.password;
 
@@ -33,21 +31,20 @@ class SignInController {
           final credential = await FirebaseAuth.instance
               .signInWithEmailAndPassword(
                   email: emailAddress, password: password);
-          if (credential.user == null) {
+
+          var user = credential.user;
+
+          if (user == null) {
             showToast(message: "User does not exist");
             return;
           } else if (!credential.user!.emailVerified) {
             showToast(message: "The email is not verified");
             return;
-          }
-
-          var user = credential.user;
-          if (user != null) {
+          } else {
             Navigator.pushNamedAndRemoveUntil(
                 context, AppRoute.homePage, (route) => false);
             Global.storageService.setBool(Keys.isUserLoggedIn.name, true);
-          } else {
-            showToast(message: "Could not login");
+            print("Logged in users name is ${user.displayName}");
           }
         } on FirebaseException catch (e) {
           if (e.code == "user-not-found") {
@@ -56,8 +53,10 @@ class SignInController {
             showToast(message: "Password is incorrect");
           } else if (e.code == "invalid-email") {
             showToast(message: "The email is formatted incorrectly");
+          } else if (e.code == "INVALID_LOGIN_CREDENTIALS") {
+            showToast(message: "Login credentials are incorrect");
           } else {
-            showToast(message: "An unknown error occured");
+            showToast(message: e.message ?? "");
             print(e.message);
           }
         }

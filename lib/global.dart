@@ -11,6 +11,7 @@ class Global {
         options: DefaultFirebaseOptions.currentPlatform);
     storageService = await StorageService().init();
     bool isLaunched = await storageService.isFirstLaunch;
-    print(isLaunched);
+
+    print("Is app launched before $isLaunched");
   }
 }

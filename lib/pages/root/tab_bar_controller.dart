@@ -1,5 +1,5 @@
 import 'package:ecommerce_app_flutter/common/values/colors.dart';
-import 'package:ecommerce_app_flutter/pages/root/Components/BuildPage.dart';
+import 'package:ecommerce_app_flutter/pages/root/Components/buildpage.dart';
 import 'package:ecommerce_app_flutter/pages/root/bloc/root_bloc.dart';
 import 'package:ecommerce_app_flutter/pages/root/bloc/root_event.dart';
 import 'package:ecommerce_app_flutter/pages/root/bloc/root_state.dart';
